@@ -36,14 +36,16 @@ class Follow {
     public void fillFollowForString(Character root, String str) {
         int i = 0;
         char[] arr = str.toCharArray();
+        if (!map.containsKey(root))
+             map.put(root, new ArrayList<>());
+        
 
         while (i != arr.length) {
             char ch = arr[i];
             if (ch >= 'A' && ch <= 'Z') {
                 if (!map.containsKey(ch))
                     map.put(ch, new ArrayList<Character>());
-                if (!map.containsKey(root))
-                    map.put(root, new ArrayList<>());
+      
                 List<Character> follow_of_root = new ArrayList<>(map.get(root));
                 List<Character> follow_of_current = map.get(ch);
 
